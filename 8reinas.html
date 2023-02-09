@@ -1,64 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    
+    <title>8 Reinas</title>
+
     <style>
-        table{
-            border:1px solid;
+        table {
+            border: 1px solid;
             border-collapse: collapse;
-            
         }
-        tr{
-            border:1px solid;
+        
+        tr {
+            border: 1px solid;
             border-collapse: collapse;
-            
         }
-        td{
-            border:1px solid;
+        
+        td {
+            border: 1px solid;
             border-collapse: collapse;
-            width:50px;
+            width: 50px;
             height: 50px;
         }
-        tr:nth-child(even) td:nth-child(even), tr:nth-child(odd) td:nth-child(odd){
+        
+        tr:nth-child(even) td:nth-child(even),
+        tr:nth-child(odd) td:nth-child(odd) {
             background-color: black;
-            
         }
-        tr:nth-child(odd) td:nth-child(even), tr:nth-child(odd) td:nth-child(even){
+        
+        tr:nth-child(odd) td:nth-child(even),
+        tr:nth-child(odd) td:nth-child(even) {
             background-color: white;
-            
         }
-        div  {
+        
+        div {
             font-size: xx-large;
         }
-           
-
     </style>
     <script>
-        var contador=0;
-        function celdaclick(ana){
-            //Este if valida si la celda tiene imagen de fondo o no
-            if((window.getComputedStyle(ana).backgroundImage)=="none" ) {
-                if(contador != 8){
-                    contador++; 
-                    ana.style="background-image:url(./2x1.png); background-repeat:no-repeat; background-size: cover;";
-                } 
-                
-            }
-            else {
-                contador--;
-                ana.style="background-image:none; background-repeat:no-repeat; background-size: cover;";
-            }
-            document.getElementById("div_contador").innerHTML="reinascolocadas:"+ contador;
-        }
+        var contador = 0;
 
+        function celdaclick(ana) {
+            //Este if valida si la celda tiene imagen de fondo o no
+            if ((window.getComputedStyle(ana).backgroundImage) == "none") {
+                if (contador != 8) {
+                    contador++;
+                    ana.style = "background-image:url(./reina.png); background-repeat:no-repeat; background-size: cover;";
+                }
+
+            } else {
+                contador--;
+                ana.style = "background-image:none; background-repeat:no-repeat; background-size: cover;";
+            }
+            document.getElementById("div_contador").innerHTML = "reinascolocadas:" + contador;
+        }
     </script>
 </head>
+
 <body>
-    
+
     <table>
         <tr>
             <td onclick="celdaclick(this)"> </td>
@@ -72,8 +74,8 @@
         </tr>
 
         <tr>
-            
-            <td ></td>
+
+            <td></td>
             <td onclick="celdaclick(this)"></td>
             <td onclick="celdaclick(this)"></td>
             <td onclick="celdaclick(this)"></td>
@@ -150,4 +152,5 @@
         
     </button>
 </body>
+
 </html>
