@@ -52,16 +52,60 @@
 
             } else {
                 contador--;
-                ana.style = "background-image:none; background-repeat:no-repeat; background-size: cover;";
+                ana.style = "background-image:none;";
             }
-            document.getElementById("div_contador").innerHTML = "reinascolocadas:" + contador;
+            document.getElementById("div_contador").innerHTML = "Reinas Colocadas: " + contador;
+
         }
+
+        function simulacion() {
+
+        }
+
+        function reiniciar() {
+            var celdas = document.getElementById("tablero").getElementsByTagName("td");
+            for (let i = 0; i < celdas.length; i++) {
+                celdas[i].style = "background-image: none;";
+
+            }
+            contador = 0;
+            document.getElementById("div_contador").innerHTML = "Reinas Colocadas: " + contador;
+
+        }
+
+        function solucion1() {
+            reiniciar();
+            var celdas = document.getElementById("tablero");
+
+            //celdas.rows[0].cells[4].style = "background-image:url(./reina.png); background-repeat:no-repeat; background-size: cover;";
+
+            let solucion = [
+                [0, 4],
+                [1, 1],
+                [2, 3],
+                [3, 6],
+                [4, 2],
+                [5, 7],
+                [6, 5],
+                [7, 0]
+            ]
+            solucion.forEach(element => {
+                celdas.rows[element[0]].cells[element[1]].style = "background-image:url(./reina.png); background-repeat:no-repeat; background-size: cover;";
+
+            });
+            contador = 8;
+            document.getElementById("div_contador").innerHTML = "Reinas Colocadas: " + contador;
+
+
+        }
+
+        function solucion2() {}
     </script>
 </head>
 
 <body>
 
-    <table>
+    <table id="tablero">
         <tr>
             <td onclick="celdaclick(this)"> </td>
             <td onclick="celdaclick(this)"></td>
@@ -146,10 +190,19 @@
         </tr>
     </table>
     <div id="div_contador">
-        reinascolocadas: 0
+        Reinas Colocadas: 0
     </div>
+    <button onclick="simulacion()">
+        Simulación
+    </button>
+    <button onclick="reiniciar()">
+        Reiniciar
+    </button>
+    <button onclick="solucion1()">
+        Solución 1
+    </button>
     <button>
-        
+        Solución 2
     </button>
 </body>
 
