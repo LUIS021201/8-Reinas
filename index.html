@@ -59,6 +59,30 @@
         }
 
         function simulacion() {
+            if (contador != 8) {
+                console.log("No se han colocado las 8 reinas")
+                return;
+            }
+            console.clear();
+
+            var celdas = document.getElementById("tablero").getElementsByTagName("td");
+
+            var simulacionCorrecta = true;
+
+            var suma_restas = 0;
+            for (let i = 0; i < celdas.length; i++) {
+                renglon = Math.floor(i / 8);
+                if ((window.getComputedStyle(celdas[i]).backgroundImage) != "none") {
+                    suma_restas += renglon - (i % 8);
+                }
+            }
+            simulacionCorrecta = suma_restas == 0;
+
+            if (simulacionCorrecta) {
+                console.log("BIEN");
+            } else {
+                console.log("MAL");
+            }
 
         }
 
@@ -66,6 +90,7 @@
             var celdas = document.getElementById("tablero").getElementsByTagName("td");
             for (let i = 0; i < celdas.length; i++) {
                 celdas[i].style = "background-image: none;";
+
 
             }
             contador = 0;
@@ -119,7 +144,7 @@
 
         <tr>
 
-            <td></td>
+            <td onclick="celdaclick(this)"></td>
             <td onclick="celdaclick(this)"></td>
             <td onclick="celdaclick(this)"></td>
             <td onclick="celdaclick(this)"></td>
