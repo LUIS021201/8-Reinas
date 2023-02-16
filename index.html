@@ -51,7 +51,6 @@
         }
         
         div {
-            font-size: xx-large;
             font-family: Circular, Helvetica, sans-serif;
         }
         
@@ -70,6 +69,37 @@
         h1 {
             color: beige;
         }
+        
+        .resultado {
+            display: none;
+            /* display: flex;*/
+            flex-direction: column;
+            gap: .5rem;
+        }
+        
+        .resultado h2 {
+            color: beige;
+            border-radius: 999px;
+            padding: .825rem 1.125rem;
+            margin: auto;
+        }
+        
+        #ganar h2 {
+            background-color: #07ac0c;
+        }
+        
+        #perder h2 {
+            background-color: #df0202;
+        }
+        
+        #reinas-incompletas h2 {
+            background-color: #ffffff;
+            color: #212121;
+            border-color: #212121;
+            border-width: 2px;
+        }
+        
+        .resultado h3 {}
         /* CSS */
         
         .button-80 {
@@ -170,8 +200,11 @@
         }
 
         function simulacion() {
+            limpiarResultados();
             if (contador != 8) {
                 console.log("No se han colocado las 8 reinas")
+                document.getElementById("reinas-incompletas").style = "display:flex;"
+
                 return;
             }
             console.clear();
@@ -190,14 +223,17 @@
             simulacionCorrecta = suma_restas == 0;
 
             if (simulacionCorrecta) {
-                console.log("BIEN");
+                document.getElementById("ganar").style = "display:flex;"
+
             } else {
-                console.log("MAL");
+                document.getElementById("perder").style = "display:flex;"
             }
 
         }
 
         function reiniciar() {
+            limpiarResultados();
+
             var celdas = document.getElementById("tablero").getElementsByTagName("td");
             for (let i = 0; i < celdas.length; i++) {
                 celdas[i].style = "background-image: none;";
@@ -236,6 +272,14 @@
         }
 
         function solucion2() {}
+
+        function limpiarResultados() {
+            var resultados = document.getElementsByClassName("resultado");
+            for (let i = 0; i < resultados.length; i++) {
+                resultados[i].style = "display:none;";
+
+            }
+        }
     </script>
 </head>
 
@@ -333,6 +377,19 @@
         <h2 id="div_contador">
             Reinas Colocadas: 0
         </h2>
+        <div class="resultado" id="ganar">
+            <h2>¡Felicidades!</h2>
+            <h3>Has encontrado una solución valida.</h3>
+        </div>
+        <div class="resultado" id="perder">
+            <h2>Incorrecto</h2>
+            <h3>Revisalo. Algunas reinas se comen entre sí.</h3>
+        </div>
+        <div class="resultado" id="reinas-incompletas">
+            <h2>¡Ya casi!</h2>
+            <h3>Faltan reinas por colocar.</h3>
+        </div>
+
         <div id="contenedor_botones">
 
             <button class="button-80" role="button" onclick="simulacion()">
