@@ -271,7 +271,30 @@
 
         }
 
-        function solucion2() {}
+        function solucion2() {
+            reiniciar();
+            var celdas = document.getElementById("tablero");
+
+            //celdas.rows[0].cells[4].style = "background-image:url(./reina.png); background-repeat:no-repeat; background-size: cover;";
+
+            let solucion = [
+                [0, 3],
+                [1, 5],
+                [2, 7],
+                [3, 2],
+                [4, 0],
+                [5, 6],
+                [6, 4],
+                [7, 1]
+            ]
+            solucion.forEach(element => {
+                celdas.rows[element[0]].cells[element[1]].style = "background-image:url(./reina.png); background-repeat:no-repeat; background-size: cover;";
+
+            });
+            contador = 8;
+            document.getElementById("div_contador").innerHTML = "Reinas Colocadas: " + contador;
+
+        }
 
         function limpiarResultados() {
             var resultados = document.getElementsByClassName("resultado");
@@ -402,7 +425,7 @@
             <button class="button-80" role="button" onclick="solucion1()">
         Solución 1
     </button>
-            <button class="button-80" role="button">
+            <button class="button-80" role="button" onclick="solucion2  ()">
         Solución 2
     </button>
         </div>
