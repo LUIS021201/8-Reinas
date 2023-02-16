@@ -8,9 +8,24 @@
     <title>8 Reinas</title>
 
     <style>
+        body {
+            background: rgb(34, 193, 195);
+            background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
+        }
+        
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 1.5rem 3rem;
+            gap: 1rem;
+        }
+        
         table {
             border: 1px solid;
             border-collapse: collapse;
+            background-color: white;
         }
         
         tr {
@@ -21,8 +36,8 @@
         td {
             border: 1px solid;
             border-collapse: collapse;
-            width: 50px;
-            height: 50px;
+            width: 2rem;
+            height: 2rem;
         }
         
         tr:nth-child(even) td:nth-child(even),
@@ -37,6 +52,102 @@
         
         div {
             font-size: xx-large;
+            font-family: Circular, Helvetica, sans-serif;
+        }
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            color: black;
+            text-align: center;
+            margin: 0;
+            font-family: Circular, Helvetica, sans-serif
+        }
+        
+        h1 {
+            color: beige;
+        }
+        /* CSS */
+        
+        .button-80 {
+            background: #fff;
+            backface-visibility: hidden;
+            border-radius: .375rem;
+            border-style: solid;
+            border-width: .125rem;
+            box-sizing: border-box;
+            color: #212121;
+            cursor: pointer;
+            display: inline-block;
+            font-family: Circular, Helvetica, sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: -.01em;
+            line-height: 1.3;
+            padding: .800rem 1rem;
+            position: relative;
+            text-align: left;
+            text-decoration: none;
+            transform: translateZ(0) scale(1);
+            transition: transform .2s;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+        
+        .button-80:not(:disabled):hover {
+            transform: scale(1.05);
+        }
+        
+        .button-80:not(:disabled):hover:active {
+            transform: scale(1.05) translateY(.125rem);
+        }
+        
+        .button-80:focus {
+            outline: 0 solid transparent;
+        }
+        
+        .button-80:focus:before {
+            content: "";
+            left: calc(-1*.375rem);
+            pointer-events: none;
+            position: absolute;
+            top: calc(-1*.375rem);
+            transition: border-radius;
+            user-select: none;
+        }
+        
+        .button-80:focus:not(:focus-visible) {
+            outline: 0 solid transparent;
+        }
+        
+        .button-80:focus:not(:focus-visible):before {
+            border-width: 0;
+        }
+        
+        .button-80:not(:disabled):active {
+            transform: translateY(.125rem);
+        }
+        
+        #titulo {
+            font-size: medium;
+            background: rgb(14, 1, 230);
+            border-radius: 999px;
+            padding: 1rem;
+        }
+        
+        #instrucciones {
+            font-size: medium;
+        }
+        
+        #contenedor_botones {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
         }
     </style>
     <script>
@@ -129,106 +240,116 @@
 </head>
 
 <body>
+    <main>
+        <div id="titulo">
+            <h1>JUEGO DE LAS 8 REINAS</h1>
+        </div>
 
-    <table id="tablero">
-        <tr>
-            <td onclick="celdaclick(this)"> </td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
+        <h4 id="instrucciones">Coloca 8 reinas en el tablero de modo que no se puedan comer unas a otras. Presiona el boton simulación para saber si tu respuesta es correcta</h4>
+        <table id="tablero">
+            <tr>
+                <td onclick="celdaclick(this)"> </td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+            </tr>
 
-        <tr>
+            <tr>
 
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-        <tr>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-            <td onclick="celdaclick(this)"></td>
-        </tr>
-    </table>
-    <div id="div_contador">
-        Reinas Colocadas: 0
-    </div>
-    <button onclick="simulacion()">
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+            </tr>
+            <tr>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+                <td onclick="celdaclick(this)"></td>
+            </tr>
+        </table>
+        <h2 id="div_contador">
+            Reinas Colocadas: 0
+        </h2>
+        <div id="contenedor_botones">
+
+            <button class="button-80" role="button" onclick="simulacion()">
         Simulación
-    </button>
-    <button onclick="reiniciar()">
+    </button  >
+            
+            <button class="button-80" role="button" onclick="reiniciar()">
         Reiniciar
     </button>
-    <button onclick="solucion1()">
+            <button class="button-80" role="button" onclick="solucion1()">
         Solución 1
     </button>
-    <button>
+            <button class="button-80" role="button">
         Solución 2
     </button>
+        </div>
+    </main>
 </body>
 
 </html>
