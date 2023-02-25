@@ -3,10 +3,12 @@ var contador = 0;
 function celdaclick(ana) {
     //Este if valida si la celda tiene imagen de fondo o no
     if ((window.getComputedStyle(ana).backgroundImage) == "none") {
+
         if (contador != 8) {
             contador++;
             ana.style = "background-image:url(./reina.png); background-repeat:no-repeat; background-size: cover;";
         }
+
 
     } else {
         contador--;
@@ -119,8 +121,6 @@ function limpiarResultados() {
 
 
 function getSoluciones() {
-
-
     let solucion1 = [
         [0, 3],
         [1, 5],
@@ -131,23 +131,27 @@ function getSoluciones() {
         [6, 4],
         [7, 1]
     ];
-
-
-
     let solucion2 = [
         [0, 4],
         [1, 6],
         [2, 1],
         [3, 5],
-        [4, 2],
-        [5, 0],
+        [4, 0],
+        [5, 2],
         [6, 7],
         [7, 3]
     ];
-
-
-
     let solucion3 = [
+        [0, 4],
+        [1, 6],
+        [2, 3],
+        [3, 0],
+        [4, 2],
+        [5, 7],
+        [6, 5],
+        [7, 1]
+    ];
+    let solucion4 = [
         [0, 5],
         [1, 7],
         [2, 2],
@@ -157,23 +161,37 @@ function getSoluciones() {
         [6, 4],
         [7, 1]
     ];
-
-
-
-    let solucion4 = [
+    let solucion5 = [
+        [0, 5],
+        [1, 7],
+        [2, 0],
+        [3, 4],
+        [4, 6],
+        [5, 1],
+        [6, 3],
+        [7, 2]
+    ];
+    let solucion6 = [
+        [0, 5],
+        [1, 7],
+        [2, 2],
+        [3, 0],
+        [4, 3],
+        [5, 6],
+        [6, 4],
+        [7, 1]
+    ];
+    let solucion7 = [
         [0, 6],
         [1, 3],
         [2, 5],
-        [3, 0],
-        [4, 2],
+        [3, 7],
+        [4, 1],
         [5, 4],
-        [6, 7],
-        [7, 1]
+        [6, 2],
+        [7, 0]
     ];
-
-
-
-    let solucion5 = [
+    let solucion8 = [
         [0, 6],
         [1, 4],
         [2, 2],
@@ -183,61 +201,49 @@ function getSoluciones() {
         [6, 1],
         [7, 3]
     ];
-
-
-    let solucion6 = [
-        [0, 4],
-        [1, 6],
-        [2, 1],
-        [3, 5],
-        [4, 2],
+    let solucion9 = [
+        [0, 6],
+        [1, 4],
+        [2, 2],
+        [3, 0],
+        [4, 5],
         [5, 7],
-        [6, 0],
+        [6, 1],
         [7, 3]
     ];
-
-
-
-    let solucion7 = [
-        [0, 5],
-        [1, 7],
-        [2, 1],
+    let solucion10 = [
+        [0, 6],
+        [1, 4],
+        [2, 7],
+        [3, 1],
+        [4, 3],
+        [5, 5],
+        [6, 0],
+        [7, 2]
+    ];
+    let solucion11 = [
+        [0, 6],
+        [1, 4],
+        [2, 7],
         [3, 3],
         [4, 0],
-        [5, 6],
-        [6, 4],
-        [7, 2]
-    ];
-
-
-    let solucion8 = [
-        [0, 3],
-        [1, 0],
-        [2, 4],
-        [3, 7],
-        [4, 5],
         [5, 2],
-        [6, 6],
+        [6, 5],
         [7, 1]
     ];
-
-
-    let solucion9 = [
-        [0, 4],
-        [1, 6],
-        [2, 0],
-        [3, 3],
-        [4, 1],
-        [5, 7],
-        [6, 5],
-        [7, 2]
+    let solucion12 = [
+        [0, 7],
+        [1, 1],
+        [2, 3],
+        [3, 0],
+        [4, 6],
+        [5, 4],
+        [6, 2],
+        [7, 5]
     ];
 
-
-    let soluciones = [solucion1, solucion2, solucion3, solucion4, solucion5, solucion6, solucion7, solucion8, solucion9]
-
+    let soluciones = [solucion1, solucion2, solucion3, solucion4, solucion5, solucion6, solucion7, solucion8, solucion9, solucion10, solucion11, solucion12]
     return soluciones;
-
 }
 
 
@@ -251,8 +257,5 @@ function testSoluciones() {
         } else {
             console.log("El algoritmo no es capaz de revisar todas las posibles soluciones")
         }
-
     }
-
-
 }
